@@ -36,10 +36,14 @@ defmodule Stripe.Mixfile do
     deps(:dev)
   end
 
+  defp deps(:stage) do
+    deps(:prod)
+  end
+
   defp deps(:prod) do
     [
       {:httpoison, "~> 0.8.2" },
-      {:poison, "~> 1.5 or ~> 2.1.0", optional: true},
+      {:poison, "~> 1.5 or ~> 2.0.1", optional: true},
       {:ex_doc, "~> 0.7", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev},
       {:excoveralls, "~> 0.5.4", only: :test},
